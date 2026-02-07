@@ -1,0 +1,19 @@
+# Core
+python-dotenv
+requests
+pandas
+numpy
+
+# Database
+psycopg[binary]
+
+# Data Science / ML
+scikit-learn
+joblib
+
+# Orchestration
+apache-airflow
+
+# Serving (optional)
+fastapi
+uvicorn
