@@ -3,6 +3,7 @@ python-dotenv
 requests
 pandas
 numpy
+sqlalchemy
 
 # Database
 psycopg[binary]
