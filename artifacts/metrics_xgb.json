@@ -1,0 +1,18 @@
+{
+  "best_cv_mae": 13.390147939748237,
+  "test_mae": 17.048105693733604,
+  "test_rmse": 32.099483554600276,
+  "best_params": {
+    "subsample": 0.8,
+    "reg_lambda": 2.0,
+    "reg_alpha": 0.0,
+    "n_estimators": 200,
+    "min_child_weight": 7,
+    "max_depth": 3,
+    "learning_rate": 0.1,
+    "colsample_bytree": 1.0
+  },
+  "n_rows": 1366,
+  "n_train": 1092,
+  "n_test": 274
+}

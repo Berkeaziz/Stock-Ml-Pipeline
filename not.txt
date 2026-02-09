@@ -1,0 +1,1 @@
+Scheduler → (DB’ye yazar) → Executor task’i çalıştırır → (DB’ye yazar) → Webserver gösterir
