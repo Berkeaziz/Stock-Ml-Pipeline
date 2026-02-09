@@ -11,6 +11,7 @@ psycopg[binary]
 # Data Science / ML
 scikit-learn
 joblib
+xgboost
 
 # Orchestration
 apache-airflow

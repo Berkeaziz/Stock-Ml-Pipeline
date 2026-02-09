@@ -6,6 +6,8 @@ services:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
+      AIRFLOW__WEBSERVER__SECRET_KEY: "e082da3c03ef6980d43561e8aea87ff5"
+
     volumes:
       - airflow_pgdata:/var/lib/postgresql/data
     restart: unless-stopped
@@ -22,12 +24,14 @@ services:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
+      AIRFLOW__WEBSERVER__SECRET_KEY: "e082da3c03ef6980d43561e8aea87ff5"
+
       PYTHONPATH: /opt/airflow/project
     volumes:
       - ./dags:/opt/airflow/dags
       - ./:/opt/airflow/project
     ports:
-      - "8080:8080"
+      - "8081:8080"
     command: webserver
     restart: unless-stopped
 
@@ -42,6 +46,7 @@ services:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__WEBSERVER__SECRET_KEY: "e082da3c03ef6980d43561e8aea87ff5"
       PYTHONPATH: /opt/airflow/project
     volumes:
       - ./dags:/opt/airflow/dags
@@ -60,21 +65,14 @@ services:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__WEBSERVER__SECRET_KEY: "e082da3c03ef6980d43561e8aea87ff5"
       PYTHONPATH: /opt/airflow/project
     volumes:
       - ./dags:/opt/airflow/dags
       - ./:/opt/airflow/project
     command: >
-      bash -c "
-      airflow db migrate &&
-      airflow users create
-        --username airflow
-        --password airflow
-        --firstname Air
-        --lastname Flow
-        --role Admin
-        --email airflow@example.com
-      "
+      bash -lc "airflow db migrate &&
+      airflow users create --username airflow --password airflow --firstname Air --lastname Flow --role Admin --email airflow@example.com"
 
 volumes:
   airflow_pgdata:
