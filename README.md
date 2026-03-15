@@ -19,9 +19,7 @@ This project focuses on production-oriented pipeline design rather than notebook
 ---
 
 ## Architecture
-
 ```mermaid
-flowchart LR
 
     A[AlphaVantage API]
     B[ETL Pipeline<br>(Pandas)]
