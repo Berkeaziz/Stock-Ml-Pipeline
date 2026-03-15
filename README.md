@@ -19,20 +19,16 @@ This project focuses on production-oriented pipeline design rather than notebook
 ---
 
 ## Architecture
----
-
-## Architecture
 
 ```mermaid
 flowchart LR
-
-    A[AlphaVantage API]
-    B[ETL Pipeline<br>(Pandas)]
-    C[PostgreSQL<br>(Dockerized)]
-    D[Airflow Orchestration]
-    E[Feature Engineering]
-    F[XGBoost Model Training]
-    G[Evaluation & Artifacts]
+    A["AlphaVantage API"]
+    B["ETL Pipeline - Pandas"]
+    C["PostgreSQL - Dockerized"]
+    D["Airflow Orchestration"]
+    E["Feature Engineering"]
+    F["XGBoost Model Training"]
+    G["Evaluation and Artifacts"]
 
     A --> B
     B --> C
