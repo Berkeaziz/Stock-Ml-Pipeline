@@ -1,4 +1,4 @@
-﻿# 📈 Stock Price ML Pipeline
+﻿# Stock Price ML Pipeline
 
 An end-to-end Data Engineering + Data Science project that demonstrates how financial time-series data can be ingested, validated, transformed, and used to train a time-aware machine learning model, fully orchestrated with Apache Airflow.
 
@@ -6,7 +6,7 @@ This project focuses on production-oriented pipeline design rather than notebook
 
 ---
 
-## 🚀 Project Highlights
+## Project Highlights
 
 - End-to-End Pipeline: From external AlphaVantage API to a trained ML model.
 - Idempotent ETL: Robust data ingestion using Pandas and PostgreSQL.
@@ -18,14 +18,29 @@ This project focuses on production-oriented pipeline design rather than notebook
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
-(Mermaid Diagram)
-AlphaVantage API --> ETL Pipeline (Pandas) --> PostgreSQL (Dockerized) --> Airflow Orchestration --> Feature Engineering --> XGBoost Model Training --> Evaluation & Artifacts
+```mermaid
+flowchart LR
 
+    A[AlphaVantage API]
+    B[ETL Pipeline<br>(Pandas)]
+    C[PostgreSQL<br>(Dockerized)]
+    D[Airflow Orchestration]
+    E[Feature Engineering]
+    F[XGBoost Model Training]
+    G[Evaluation & Artifacts]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+```
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Language: Python 3.11
 - Orchestration: Apache Airflow
@@ -36,7 +51,7 @@ AlphaVantage API --> ETL Pipeline (Pandas) --> PostgreSQL (Dockerized) --> Airfl
 
 ---
 
-## 📁 Pipeline Overview
+## Pipeline Overview
 
 ### 1. Data Engineering (ETL)
 * Extract: Weekly financial data fetched from AlphaVantage API with error handling.
@@ -60,7 +75,7 @@ AlphaVantage API --> ETL Pipeline (Pandas) --> PostgreSQL (Dockerized) --> Airfl
 
 ---
 
-## 💻 How to Run
+## How to Run
 
 1. Clone the repository:
    git clone https://github.com/your-username/stock-ml-pipeline.git
@@ -78,7 +93,7 @@ AlphaVantage API --> ETL Pipeline (Pandas) --> PostgreSQL (Dockerized) --> Airfl
 
 ---
 
-## 📈 Future Enhancements
+## Future Enhancements
 - MLflow Integration: For experiment tracking and model versioning.
 - dbt (data build tool): Moving transformations into the warehouse.
 - Drift Detection: Monitoring for data and model drift over time.
