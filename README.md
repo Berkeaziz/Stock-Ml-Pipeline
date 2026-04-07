@@ -74,24 +74,6 @@ flowchart LR
 
 ---
 
-## How to Run
-
-1. Clone the repository:
-   git clone https://github.com/your-username/stock-ml-pipeline.git
-
-2. Set up Environment Variables:
-   Create a .env file and add your AlphaVantage API Key and DB credentials.
-
-3. Start Infrastructure (PostgreSQL & Airflow):
-   docker-compose up -d
-
-4. Run Pipeline Components (Manual Trigger):
-   python -m src.etl.run_etl
-   python -m src.features.run_features
-   python -m src.train.train
-
----
-
 ## Future Enhancements
 - MLflow Integration: For experiment tracking and model versioning.
 - dbt (data build tool): Moving transformations into the warehouse.
